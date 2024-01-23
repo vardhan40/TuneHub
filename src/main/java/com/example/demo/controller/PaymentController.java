@@ -51,7 +51,7 @@ public class PaymentController {
 		int  amount  = 5000;
 		Order order=null;
 		try {
-			RazorpayClient razorpay=new RazorpayClient("rzp_test_kSEyIt2EeklaOV", "q9xsCxLCUN1kgAZ5Rqti8p98");
+			RazorpayClient razorpay=new RazorpayClient("rzp_test_A2JMU6I4cS4rci", "HCPykR1lEjI6g0dk51q11cl8");
 
 			JSONObject orderRequest = new JSONObject();
 			orderRequest.put("amount", amount*100); // amount in the smallest currency unit
@@ -75,12 +75,12 @@ public class PaymentController {
 	public boolean verifyPayment(@RequestParam  String orderId, @RequestParam String paymentId, @RequestParam String signature) {
 	    try {
 	        // Initialize Razorpay client with your API key and secret
-	        RazorpayClient razorpayClient = new RazorpayClient("rzp_test_pvGIc9JvXWZTVS", "UlnLCUb8lRxvBKRyIYRYWrEO");
+	        RazorpayClient razorpayClient = new RazorpayClient("rzp_test_A2JMU6I4cS4rci", "HCPykR1lEjI6g0dk51q11cl8");
 	        // Create a signature verification data string
 	        String verificationData = orderId + "|" + paymentId;
 
 	        // Use Razorpay's utility function to verify the signature
-	        boolean isValidSignature = Utils.verifySignature(verificationData, signature, "UlnLCUb8lRxvBKRyIYRYWrEO");
+	        boolean isValidSignature = Utils.verifySignature(verificationData, signature, "HCPykR1lEjI6g0dk51q11cl8");
 
 	        return isValidSignature;
 	    } catch (RazorpayException e) {
